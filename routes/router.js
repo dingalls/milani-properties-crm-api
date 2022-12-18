@@ -2,18 +2,6 @@ const express = require('express');
 const contacts = require('../controller/contacts');
 const agents = require('../controller/agents');
 const route = express.Router();
-const cors = require('cors');
-
-var allowlist = ['http://localhost:8080/', 'https://master.d3o2tmndgiftvf.amplifyapp.com']
-var corsOptionsDelegate = function (req, callback) {
-  var corsOptions;
-  if (allowlist.indexOf(req.header('Origin')) !== -1) {
-    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false } // disable CORS for this request
-  }
-  callback(null, corsOptions) // callback expects two parameters: error and options
-}
 
 // Contact routes
 route.get('/api/contacts', contacts.find);
