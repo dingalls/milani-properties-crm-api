@@ -12,7 +12,8 @@ dotenv.config({ path: 'config.env' });
 // CORS
 app.use(cors({
   origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE"]
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
 }));
 
 // mongoDB Connection
