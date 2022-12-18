@@ -10,7 +10,10 @@ const app = express();
 dotenv.config({ path: 'config.env' });
 
 // CORS
-app.use(cors({ origin: "*" }))
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"]
+}));
 
 // mongoDB Connection
 connectDB();
